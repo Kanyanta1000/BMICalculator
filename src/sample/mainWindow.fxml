@@ -1,0 +1,42 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+
+<?import javafx.scene.layout.HBox?>
+<VBox fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml" alignment="CENTER">
+    <padding>
+        <Insets top="10"/>
+    </padding>
+    <Label text="Please enter your height and weight then click Calculate."/>
+    <Label text="Your BMI will appear below that along with some recommendations."/>
+
+    <GridPane alignment="top_center" hgap="10" vgap="10">
+        <padding>
+            <Insets top="10" bottom="10"/>
+        </padding>
+        <TextField fx:id="heightField" text="Height (CM)" GridPane.rowIndex="0" GridPane.columnIndex="0"
+                   onKeyReleased="#handleKeyReleased" onMouseClicked="#handleHeightFieldSelected"/>
+        <TextField fx:id="weightField" text="Weight (KG)" GridPane.rowIndex="0" GridPane.columnIndex="1"
+                   onKeyReleased="#handleKeyReleased" onMouseClicked="#handleWeightFieldSelected"/>
+        <Button fx:id="calculateButton" text="Calculate" GridPane.rowIndex="0" GridPane.columnIndex="2"
+                onAction="#onCalculateButtonClicked"/>
+    </GridPane>
+
+    <VBox alignment="CENTER" GridPane.rowIndex="1" GridPane.columnIndex="0">
+        <Label fx:id="BMIResultLabel" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <Label fx:id="BMICategoryLabel" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <Label fx:id="BMIRecommendationLabel" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+    </VBox>
+
+    <HBox alignment="BASELINE_CENTER">
+        <padding>
+            <Insets top="50" bottom="10"/>
+        </padding>
+        <Button text="Reset" prefWidth="90" onAction="#onResetButtonClicked"/>
+    </HBox>
+</VBox>
+
